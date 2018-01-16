@@ -33,6 +33,20 @@ HEADERS += \
         widget.h \
     operateimageinterface.h
 
-INCLUDEPATH += ./opencv/include
-LIBS += $$PWD/opencv/lib/opencv_world340.lib \
-    $$PWD/opencv/lib/opencv_world340d.lib
+
+#INCLUDEPATH += ./opencv/include
+#LIBS += $$PWD/opencv/lib/opencv_world340.lib \
+#    $$PWD/opencv/lib/opencv_world340d.lib
+
+unix{
+INCLUDEPATH += /usr/local/include \
+                /usr/local/include/opencv \
+                /usr/local/include/opencv2
+
+LIBS    +=  /usr/local/lib/libopencv_highgui.so \
+            /usr/local/lib/libopencv_core.so    \
+            /usr/local/lib/libopencv_imgproc.so \
+            /usr/local/lib/libopencv_imgcodecs.so   \
+            /usr/local/lib/libopencv_video.so   \
+            /usr/local/lib/libopencv_videoio.so
+}

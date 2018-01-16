@@ -82,6 +82,10 @@ cv::Mat OperateImageInterface::QImage2cvMat(QImage image)
     case QImage::Format_Indexed8:
         mat = cv::Mat(image.height(), image.width(), CV_8UC1, (void*)image.constBits(), image.bytesPerLine());
         break;
+    default:
+        image = image.convertToFormat(QImage::Format_RGB888);
+        mat = cv::Mat(image.height(), image.width(), CV_8UC3, (void*)image.constBits(), image.bytesPerLine());
+        cv::cvtColor(mat, mat, CV_BGR2RGB);
     }
 
     return mat;

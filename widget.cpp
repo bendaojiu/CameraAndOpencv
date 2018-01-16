@@ -45,7 +45,7 @@ Widget::Widget(QWidget *parent)
     m_layout->addWidget(statusBar, 10, 0, 1, 2);
     this->statusBar->setText("已经打开摄像头");
     connect(&timer, &QTimer::timeout, this, &Widget::timerEnd);
-    timer.start(16);
+    timer.start(200);
 
     operatImage = new OperateImageInterface();
 
